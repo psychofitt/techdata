@@ -1,37 +1,25 @@
-export const runtime = 'edge';
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
-    try {
-        const { fullName, email, mobile, message } = await request.json();
+    const { fullName, email, mobile, message } = await request.json();
 
-        const transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: Number(process.env.EMAIL_PORT),
-            secure: true, // true for 465, false for other ports
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+    try {
+        const response = await fetch('https://techdata-backend.onrender.com/api/quick-enquiry', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
+            body: JSON.stringify({ fullName, email, mobile, message }),
         });
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
-            subject: 'New Quick Enquiry',
-            text: `
-                Full Name: ${fullName}
-                Email: ${email}
-                Mobile: ${mobile}
-                Message: ${message}
-            `,
-        };
+        if (!response.ok) {
+            throw new Error('Error sending email');
+        }
 
-        await transporter.sendMail(mailOptions);
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+        const result = await response.json();
+        return NextResponse.json(result, { status: 200 });
     } catch (error) {
-        console.error('Error sending email:', error);
-        return NextResponse.json({ error: 'Error sending email' }, { status: 500 });
+        console.error('Error forwarding request:', error);
+        return NextResponse.json({ error: 'Error forwarding request' }, { status: 500 });
     }
 }
