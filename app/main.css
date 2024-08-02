@@ -1,0 +1,43 @@
+.hero-banner{
+    background-image: url('https://res.cloudinary.com/dtzdwndko/video/upload/v1720540327/server-block-video_azsuel.mp4'); 
+    background-size: cover; 
+    background-position: center; 
+    height: auto; 
+    width: 100%; 
+  }
+  .custom-image {
+    height: 500px; /* Desired height */
+    width: 100%; /* Maintains width */
+    object-fit: cover; /* Maintains aspect ratio and covers the container */
+  }
+
+  @media screen and (max-width:576px){
+    .custom-image {
+      height: 250px; /* Desired height */
+      width: 100%; /* Maintains width */
+      object-fit: cover; /* Maintains aspect ratio and covers the container */
+    }
+  }
+
+
+  .image-container {
+    position: relative;
+    width: 100%;
+   
+  }
+ 
+  .centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Adjust text color as needed */
+    font-size: 24px; /* Adjust font size as needed */
+    text-align: center;
+    font-weight: bold; /* Optional: Adjust font weight as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a background color with opacity */
+    padding: 10px; /* Optional: Add padding */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+
+ 
