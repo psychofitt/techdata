@@ -32,26 +32,26 @@ const ContactPage = () => {
     });
   };
   
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
-      if (response.ok) {
-        console.log('Email sent successfully');
-      } else {
-        console.error('Error sending email');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
+    if (response.ok) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Error sending email');
     }
-  };
+  } catch (error) {
+    console.error('Error sending email:', error);
+  }
+};
 
   return (
     <div>
