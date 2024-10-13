@@ -73,7 +73,6 @@
 
 'use client'
 
-import { useEffect, useRef, useState } from 'react';
 import '@/app/main.css';
 
 const navigation = [
@@ -84,49 +83,13 @@ const navigation = [
 ];
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
-
   return (
     <div className="relative">
-      {isVisible && (
-        <video
-          autoPlay
-          loop
-          muted
-          className="absolute inset-0 w-full h-full object-cover"
-          ref={videoRef}
-        >
-          <source
-            src="https://res.cloudinary.com/dtzdwndko/video/upload/v1720540327/server-block-video_azsuel.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      )}
+      <img
+        src="/images/home.jpg"
+        alt="Hero background"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       <div className="relative z-10">
         <div className="relative isolate px-6 pt-14 lg:px-8">
           <div
@@ -176,3 +139,5 @@ export default function Hero() {
     </div>
   );
 }
+
+
