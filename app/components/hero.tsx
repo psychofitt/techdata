@@ -86,7 +86,7 @@ export default function Hero() {
   return (
     <div className="relative">
       <img
-        src="/images/home.jpg"
+        src="/images/banner.jpg"
         alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover"
       />
