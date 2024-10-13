@@ -35,14 +35,16 @@ const Header = () => {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://res.cloudinary.com/dug30iszj/image/upload/v1728824101/logo_xyaiqh.png"
-              className="h-8 w-auto"
-            />
-          </a>
+        <a href="#" className="-m-1.5 p-1.5">
+  <span className="sr-only">Your Company</span>
+  <div className="h-21 w-21 bg-white rounded-full flex items-center justify-center">
+    <img
+      alt="Your Company Logo"
+      src="https://res.cloudinary.com/dug30iszj/image/upload/v1728824101/logo_xyaiqh.png"
+      className="h-20 w-auto"
+    />
+  </div>
+</a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -112,10 +114,10 @@ const Header = () => {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+      alt="Your Company Logo"
+      src="https://res.cloudinary.com/dug30iszj/image/upload/v1728824101/logo_xyaiqh.png"
+      className="h-20 w-auto"
+    />
             </a>
             <button
               type="button"
